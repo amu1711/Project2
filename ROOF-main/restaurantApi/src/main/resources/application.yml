@@ -1,0 +1,33 @@
+server:
+  port: 8000
+
+spring:
+  datasource:
+    username: root
+    password: ${DB_PASSWORD}
+    url: jdbc:mysql://35.194.5.53/Project2
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    database: mysql
+
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: health, info, prometheus
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL_USERNAME}
+    password: ${EMAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
